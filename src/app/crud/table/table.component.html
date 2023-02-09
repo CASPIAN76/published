@@ -1,0 +1,139 @@
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New  +</button>
+  </div>
+</nav>
+
+
+
+<!-- ////               for popup -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add new data</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+        <form  [formGroup]="contactForm">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=""  formControlName="name">
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput2" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder=""   formControlName="lastName">
+          </div>
+
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput3" class="form-label">Last Name</label>
+            <input type="email" class="form-control" id="exampleFormControlInput3" placeholder=""   formControlName="email">
+          </div>
+
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"  (click)="Add()"  id="save"   data-bs-dismiss="modal" >Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- /////////////////////////////////////////////////////////////////////// -->
+             <!-- /// for Table -->
+
+             <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">email</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of student; let i=index">
+                  <th scope="row">{{i+1 }}</th>
+                  <td>{{item.name}}</td>
+                  <td>{{item.lastName}}</td>
+                  <td>{{ item.email}}</td>
+                  <td>  <button class="btn btn-primary"  (click)="edit(i)"   data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit</button> &nbsp;<button class="btn btn-danger"  (click)="remove(i)">Remove </button> </td>
+
+
+                </tr>
+
+              </tbody>
+            </table>
+
+
+
+
+
+            <!-- //////////////for edit   -->
+
+
+
+
+
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form  [formGroup]="contactForm">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=""  formControlName="name">
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput2" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder=""   formControlName="lastName">
+          </div>
+
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput3" class="form-label">Email</label>
+            <input type="email" class="form-control" id="exampleFormControlInput3" placeholder=""   formControlName="email">
+          </div>
+
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary   "  (click)="editSave()">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
