@@ -84,3 +84,6 @@ this.student.splice(i,1)
 localStorage.setItem("student", JSON.stringify(this.student))
   }
 }
+
+
+// //////////////////////
